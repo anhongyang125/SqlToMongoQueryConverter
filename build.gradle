@@ -1,0 +1,24 @@
+group 'SqlToMongoQueryConverter'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName="com.mongo.runner.MainConverter"
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName,
+                'Class-Path': configurations.compile.files.collect { "$it.name" }.join(' ')
+    }
+}
+
+//java -jar SqlToMongoQueryConverter.jar /home/cts1/Desktop/input.txt
+

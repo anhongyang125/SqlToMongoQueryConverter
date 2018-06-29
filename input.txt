@@ -1,0 +1,10 @@
+UPDATE TABLE SET columnName=XYZ
+UPDATE identityActions SET userName=XYZ WHERE uid=123123
+SELECT * FROM TABLE
+INSERT INTO identityActions(uid,lastAccessedTimestampUtc) VALUES (122323, 2014-12-12)
+DELETE FROM identityActions WHERE uid=122323
+SELECT lastLoginTimestampUtc, uid, lastAccessedTimestampUtc FROM identityActions WHERE uid=123123
+DELETE FROM TABLE
+
+INSERT INTO identityActions (uid,lastAccessedTimestampUtc) VALUES (122323, 2014-12-12)
+INSERT INTO identityActions (lastAccessedTimestampUtc,lastModifiedTimestampUtc, uid,email) VALUES (2017-05-10T06:14:08.678Z,2017-05-10T06:14:08.678Z, uid-7878, abc@abc), (2017-05-10T06:14:08.678Z,2017-05-10T06:14:08.678Z, uid-7979, anc)
