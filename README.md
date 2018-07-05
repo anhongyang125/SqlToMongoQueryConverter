@@ -58,3 +58,15 @@ You need to pass above sql file as a program arguments for "MainConverter.java" 
   db.identityActions .insertMany([
              {"lastAccessedTimestampUtc":"2017-05-10T06:14:08.678Z", "lastModifiedTimestampUtc":"2017-05-10T06:14:08.678Z", "uid":"uid-7878", "email":"abc@abc"},
              {"lastAccessedTimestampUtc":"2017-05-10T06:14:08.678Z", "lastModifiedTimestampUtc":"2017-05-10T06:14:08.678Z", "uid":"uid-7979", "email":"anc"}])
+ 
+ 5. **INDEX Clause**:
+  ###### SqlQuery:
+  CREATE INDEX Asset_uid_index ON Asset(uid)
+  ###### MongoQuery:
+  db.Asset.createIndex({"uid":"1"})
+
+  ###### SqlQuery:
+  CREATE INDEX Asset_uid_index ON Asset(uid,id)
+  ###### MongoQuery:
+  db.Asset.createIndex({"uid":"1","id":"1"})
+  
