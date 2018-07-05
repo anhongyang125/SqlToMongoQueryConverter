@@ -2,6 +2,7 @@ CREATE INDEX Asset_uid_index ON Asset(uid,id);
 UPDATE TABLE SET columnName=XYZ;
 UPDATE identityActions SET userName=XYZ WHERE uid=123123;
 SELECT * FROM TABLE;
+SELECT * FROM table WHERE id=id-123 AND name=monika AND surname=Yewale;
 INSERT INTO identityActions(uid,lastAccessedTimestampUtc) VALUES (122323, 2014-12-12);
 DELETE FROM identityActions WHERE uid=122323;
 SELECT lastLoginTimestampUtc, uid, lastAccessedTimestampUtc FROM identityActions WHERE uid=123123;
