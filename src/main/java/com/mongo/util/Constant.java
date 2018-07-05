@@ -12,4 +12,7 @@ public interface Constant {
     String WHERE = "WHERE";
     String AND = "AND";
     String SET = "SET";
+    String ROUND_OPENING_BRACKET = "(";
+    String ROUND_CLOSING_BRACKET =")";
+    String ON = "ON";
 }

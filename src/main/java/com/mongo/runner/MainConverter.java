@@ -2,10 +2,7 @@ package com.mongo.runner;
 
 import com.mongo.converter.*;
 import com.mongo.mongo.query.MongoQuery;
-import com.mongo.sql.query.DeleteSqlQuery;
-import com.mongo.sql.query.InsertSqlQuery;
-import com.mongo.sql.query.SelectSqlQuery;
-import com.mongo.sql.query.UpdateSqlQuery;
+import com.mongo.sql.query.*;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,6 +13,7 @@ public class MainConverter {
     static public MongoQuery getMongoQuery(String sql) {
         QueryConverter queryConverter;
         MongoQuery mongoQuery = null;
+        sql=sql.replace(";", "");
         if (sql.startsWith("SELECT")) {
             queryConverter = new SelectQueryConverter();
             mongoQuery = queryConverter.covertToMongoQuery(new SelectSqlQuery(sql));
@@ -28,6 +26,9 @@ public class MainConverter {
         } else if (sql.startsWith("UPDATE")) {
             queryConverter = new UpdateQueryConverter();
             mongoQuery = queryConverter.covertToMongoQuery(new UpdateSqlQuery(sql));
+        } else if(sql.contains("INDEX") && sql.contains("CREATE")) {
+            queryConverter = new IndexQueryConverter();
+            mongoQuery = queryConverter.covertToMongoQuery(new IndexSqlQuery(sql));
         }
         return mongoQuery;
     }

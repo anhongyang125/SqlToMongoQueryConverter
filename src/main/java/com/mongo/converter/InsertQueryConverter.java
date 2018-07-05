@@ -10,7 +10,6 @@ import java.util.List;
 
 public class InsertQueryConverter implements QueryConverter<InsertSqlQuery> {
 
-
     @Override
     public MongoQuery covertToMongoQuery(InsertSqlQuery insertSqlQuery) {
         InsertMongoQuery insertMongoQuery = new InsertMongoQuery();
